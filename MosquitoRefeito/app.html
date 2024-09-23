@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <style>
+         .normal {
+
+            background: url(./imagens/bg.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%; 
+
+        }
+
+        .dificil {
+             background: url(./imagens/beco.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+
+          
+        } 
+
+        .muitoDificil {
+             background: url(./imagens/esgoto_sujo.png);
+            background-repeat: no-repeat;
+            background-size: 100%; 
+            
+        }  
+            
+    </style>
+</head>
+
+<body id="body" onresize="ajustarTamanhoPalcoJogo()">
+
+    <div class="painel">
+        <div class="vidas">
+            <img id="v1" src="./imagens/coracao_cheio.png" alt="v1">
+            <img id="v2" src="./imagens/coracao_cheio.png" alt="v2">
+            <img id="v3" src="./imagens/coracao_cheio.png" alt="v3">
+        </div>
+        <div class="cronometro"> Tempo restante <span id="cronometro"></span></div>
+    </div>
+
+</body>
+
+<script>
+
+    var nivel = nivel;
+
+    if (nivel == "normal") {
+
+        var fundo = document.getElementById("body");
+        fundo.className = "normal";
+
+    }
+
+    else if (nivel == "dificil") {
+
+        var fundo = document.getElementById("body");
+        fundo.className = "dificil";
+
+    }
+    else if (nivel == "muitoDificil") {
+
+
+        var fundo = document.getElementById("body");
+        fundo.className = "muitoDificil";
+    }
+
+
+
+    document.getElementById('cronometro').innerHTML = tempo;
+
+
+    var criarMosquito = setInterval(function () {
+
+        /*    console.log(criarMosquitoTempo); */
+
+        PosicaoRandomica();
+
+    }, criarMosquitoTempo);
+
+</script>
+<!-- <script src="script.js"></script> -->
+
+</html>

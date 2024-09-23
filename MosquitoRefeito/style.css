@@ -1,0 +1,117 @@
+
+ @media (max-width: 576px) { */
+
+  .superior {
+    background-image: url(./imagens/mosquito_menor.png) no-repeat center;
+  }
+
+ } 
+
+ body{
+
+  background-image: url(./imagens/bg.jpg);
+  background-attachment: fixed;
+  background-position: center ;
+  
+
+}
+.body{
+
+  border: red;
+
+}
+
+.mosca{
+
+  width: 500px;
+  height: 500px;
+
+}
+
+
+.painel {
+
+  position: absolute;
+  width: 190px;
+  padding: 10px;
+  left: 0px;
+  bottom: 0px;
+  border-top: solid 1px #fff;
+  background-color: #fff;
+  opacity: 0.7;
+}
+
+
+.mosca-1 {
+  height: 100px;
+  width: 100px;
+}
+
+
+
+html {
+
+  cursor: url('imagens/mata_mosca.png') 30 30, auto;
+}
+
+
+
+
+
+.mosquito1{
+
+  width: 50px;
+  height: 50px;
+}
+
+.mosquito2{
+
+  width: 70px;
+  height: 70px;
+}
+
+.mosquito3{
+
+  width: 90px;
+  height: 90px;
+}
+
+.ladoA{
+/* não ira modifcar a imagem, porque o lado normal é A */
+  transform: scaleX(1);
+}
+
+.ladoB{
+
+  transform: scaleX(-1);
+}
+
+.tamanho {
+
+  width: 500px;
+}
+
+.painel {
+
+  position: absolute;
+  width: 190px;
+  padding: 10px;
+  left: 0px;
+  bottom: 0px;
+  border-top: solid 1px #fff;
+  background-color: #fff;
+  opacity: 0.7;
+
+}
+
+.vidas {
+
+  float: left;
+}
+
+.cronometro {
+  float: left;
+  font-size: 20px;
+  font-weight: bold ;
+}
+

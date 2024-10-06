@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let linha = document.getElementById('lista');
+        let lista = linha.insertRow();
+
+        //criar as colunas (td)
+        //innerHTML é o conteudo dentro da tag
+        lista.insertCell(0).innerHTML = `${d.dia}/${d.mes}/${d.ano}`
+
+
+        //ajustar o tipo
+
+     
+        
+        lista.insertCell(1).innerHTML = "ffffff";
+
+        lista.insertCell(2).innerHTML = d.descricao
+        lista.insertCell(3).innerHTML = d.valor
+        
+    
+    </script>
+</head>
+
+<body>
+
+    <table id="lista">
+
+    </table>
+
+
+
+</body>
+
+</html>

@@ -163,7 +163,7 @@ function cadastrarDespesa() {
 
 
         // instrução para chamar o mondal sucesso de forma programada
-        $('#modalUpdate').modal('show')
+        $('#modalRegistraDepesa').modal('show')
     }
 }
 
@@ -198,19 +198,17 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
                 break;
         }
 
-        linha.insertCell(1).innerHTML = d.tipo
-        linha.insertCell(2).innerHTML = d.descricao
-        linha.insertCell(3).innerHTML = d.valor
+        linha.insertCell(1).innerHTML = d.tipo;
+linha.insertCell(2).innerHTML = d.descricao;
+linha.insertCell(3).innerHTML = d.valor;
 
-        let btn2 = document.createElement("button")
-        btn2.className = "btn btn-primary"
-        btn2.innerHTML = '<i class="fas fa-edit"></i>'
-        
-       
 
+
+
+      
+      
 
         linha.insertCell(4).append(btn2);
-
 
         let btn = document.createElement("button")
         btn.className = "btn btn-danger"
@@ -227,10 +225,6 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
 
         linha.insertCell(4).append(btn);
         console.log(d);
-
-
-       
-
 
     })
 }

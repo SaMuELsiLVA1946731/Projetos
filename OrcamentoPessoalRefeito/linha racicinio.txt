@@ -1,1 +1,3 @@
 chamar mondal para atualizar dados (Pendente)
+
+https://www.devmedia.com.br/bootstrap-modal-como-utilizar-em-seus-projetos/37426 (lendo atualmente). talvez eu crie uma função e chame ela na mesma hora

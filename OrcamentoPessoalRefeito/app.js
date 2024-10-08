@@ -207,10 +207,15 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
         btn2.className = "btn btn-primary"
         btn2.innerHTML = '<i class="fas fa-edit"></i>'
         btn2.onclick =  function (){
-            $("#btn-mensagem").click(function(){
-            
-                $("#modal-mensagem").modal();
-            });
+           
+            document.getElementById("cor modal2").className = "modal-header text-primary";
+            document.getElementById("cor botao2").className = "btn btn-success";
+            document.getElementById("cor botao2").innerHTML = "Voltar";
+            document.getElementById("exampleModalLabel2").innerHTML = "Insira as novas informações";
+            /* document.getElementById("texto modal2").; */
+
+
+            $('#modalUpdate').modal('show')
         }
 
         linha.insertCell(4).append(btn2);

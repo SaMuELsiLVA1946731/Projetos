@@ -41,9 +41,7 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="index.html">Cadastro</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="consulta.html">Consulta</a>
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -52,7 +50,7 @@
     <div class="container">
         <div class="row">
             <div class="col mb-5">
-                <h1 class="display-4">Registro de nova despesa</h1>
+                <h1 class="display-5">Registro de nova despesa</h1>
             </div>
         </div>
 
@@ -114,6 +112,91 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col mb-5">
+                <h1 class="display-5">Consultar Despesa</h1>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-2">
+                <select class="form-control" id="ano">
+                    <option value="">Ano</option>
+                    <option value="">2018</option>
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <select id="mes" class="form-control">
+                    <option value="">Mês</option>
+                    <option value="1">Janeiro</option>
+                    <option value="2">Fevereiro</option>
+                    <option value="3">Março</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Maio</option>
+                    <option value="6">Junho</option>
+                    <option value="7">JUlho</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Setembro</option>
+                    <option value="10">Outubro</option>
+                    <option value="11">Novembro</option>
+                    <option value="12">Dezembro</option>
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="Dia" id="dia">
+            </div>
+
+            <div class="col-md-6">
+                <select id="tipo" class="form-control">
+                    <option value="">Tipo</option>
+                    <option value="1">Alimentação</option>
+                    <option value="2">Educação</option>
+                    <option value="3">Lazer</option>
+                    <option value="4">Saúde</option>
+                    <option value="5">Transporte</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-8">
+                <input type="text" class="form-control" placeholder="Descrição" id="descricao">
+            </div>
+
+            <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="Valor" id="valor">
+            </div>
+
+            <div class="col-md-2 d-flex justify-content-end">
+                <button type="button" class="btn btn-primary" onclick="pesquisarDespesa()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Tipo</th>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="listaDespesas">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
 
 
         <!-- modal -->
@@ -123,13 +206,13 @@
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div id="cor mondal">
+                <div id="cor modal">
                     <h5 class="modal-title" id="exampleModalLabel"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" id="texto mondal">
+                <div class="modal-body" id="texto modal">
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="cor botao" data-dismiss="modal"></button>
@@ -138,27 +221,51 @@
         </div>
     </div>
 
-    <button class="btn btn-primary" id="btn-mensagem">Exibir modal via JavaScript</button>
-
-    <div id="modal-mensagem" class="modal" tabindex="-1" role="dialog">
+    <div class="container">
+    <div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div id="cor modal2">
+                    <h5 class="modal-title" id="exampleModalLabel2"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <p>Modal body text goes here.</p>
+                <div class="modal-body" id="texto modal2">
+                    <div class="row">
+                        <label for="ano">Ano
+                            <input type="text" name="" id="">
+                        </label>
+                        <label for="ano">Ano
+                            <select name="" id="">
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+                        </label>
+
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="cor botao2" data-dismiss="modal"></button>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
+
 
     </div>
 

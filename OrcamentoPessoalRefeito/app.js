@@ -211,9 +211,8 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
             document.getElementById("cor modal2").className = "modal-header text-primary";
             document.getElementById("cor botao2").className = "btn btn-success";
             document.getElementById("cor botao2").innerHTML = "Voltar";
-            document.getElementById("exampleModalLabel2").innerHTML = "Insira as novas informações";
-            /* document.getElementById("texto modal2").; */
-
+            document.getElementById("exampleModalLabel2").innerHTML = "Atualize as novas informações";
+            
 
             $('#modalUpdate').modal('show')
         }
@@ -221,6 +220,7 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
         linha.insertCell(4).append(btn2);
 
         
+
 
         let btn = document.createElement("button")
         btn.className = "btn btn-danger"
@@ -238,7 +238,17 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
         linha.insertCell(4).append(btn);
         console.log(d);
 
+        
+
+
+        
+
     })
+
+    document.getElementById("ano").innerHTML = despesas;
+    document.getElementById("ano")
+    document.getElementById("ano")
+    document.getElementById("ano")
 }
 
 function pesquisarDespesa() {

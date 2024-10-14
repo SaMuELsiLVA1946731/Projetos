@@ -155,11 +155,11 @@ function cadastrarDespesa() {
 
         bd.gravar(despesa);
 
-        document.getElementById("cor mondal").className = "modal-header text-success";
+        document.getElementById("cor modal").className = "modal-header text-success";
         document.getElementById("cor botao").className = "btn btn-success";
         document.getElementById("cor botao").innerHTML = "Voltar";
         document.getElementById("exampleModalLabel").innerHTML = "Registro inserido com sucesso";
-        document.getElementById("texto mondal").innerHTML = "Despesa foi cadastado com sucesso";
+        document.getElementById("texto modal").innerHTML = "Despesa foi cadastado com sucesso";
 
 
         // instrução para chamar o mondal sucesso de forma programada
@@ -176,6 +176,8 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
 
     let listaDespesas = document.getElementById('listaDespesas')
     listaDespesas.innerHTML = ''
+
+    var id;
 
     despesas.forEach(function (d) {
 
@@ -206,20 +208,51 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
         let btn2 = document.createElement("button")
         btn2.className = "btn btn-primary"
         btn2.innerHTML = '<i class="fas fa-edit"></i>'
-        btn2.onclick =  function (){
-           
-            document.getElementById("cor modal2").className = "modal-header text-primary";
-            document.getElementById("cor botao2").className = "btn btn-success";
-            document.getElementById("cor botao2").innerHTML = "Voltar";
-            document.getElementById("exampleModalLabel2").innerHTML = "Atualize as novas informações";
-            
 
-            $('#modalUpdate').modal('show')
+
+
+
+        btn2.onclick = function () {
+
+            document.getElementById("cor modal2").className = "modal-header text-primary";
+            document.getElementById("cor botao3").className = "btn btn-success";
+            document.getElementById("cor botao3").innerHTML = "Atualizar";
+            document.getElementById("exampleModalLabel2").innerHTML = "Atualize as novas informações";
+
+            $('#modalUpdate').modal('show');
+
+            ano = document.getElementById('anolabel').value = d.ano
+            mes = document.getElementById('meslabel').value = d.mes
+            dia = document.getElementById('dialabel').value = d.dia
+            tipo = document.getElementById('tipolabel').value = d.tipo
+            descricao = document.getElementById('descricaolabel').value = d.descricao
+            valor = document.getElementById('valorlabel').value = d.valor
+
+            document.getElementById("cor botao3").addEventListener("click", function () {
+
+             d.ano = document.getElementById('anolabel').value;
+             d.mes = document.getElementById('meslabel').value;
+             d.dia = document.getElementById('dialabel').value;
+             d.tipo = document.getElementById('tipolabel').value;
+             d.descricao = document.getElementById('descricaolabel').value;
+             d.tipo = document.getElementById('valorlabel').value;
+
+             
+
+            });
+
+
+            /* if(  ){ */
+
+
+            /* } */
+
+
         }
 
         linha.insertCell(4).append(btn2);
 
-        
+
 
 
         let btn = document.createElement("button")
@@ -238,17 +271,12 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
         linha.insertCell(4).append(btn);
         console.log(d);
 
-        
-
-
-        
-
     })
 
-    document.getElementById("ano").innerHTML = despesas;
-    document.getElementById("ano")
-    document.getElementById("ano")
-    document.getElementById("ano")
+
+
+
+
 }
 
 function pesquisarDespesa() {

@@ -230,16 +230,41 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
 
             document.getElementById("cor botao3").addEventListener("click", function () {
 
-             d.ano = document.getElementById('anolabel').value;
-             d.mes = document.getElementById('meslabel').value;
-             d.dia = document.getElementById('dialabel').value;
-             d.tipo = document.getElementById('tipolabel').value;
-             d.descricao = document.getElementById('descricaolabel').value;
-             d.tipo = document.getElementById('valorlabel').value;
+                let ano = document.getElementById('anolabel').value;
+                let mes = document.getElementById('meslabel').value;
+                let dia = document.getElementById('dialabel').value;
+                let tipo = document.getElementById('tipolabel').value;
+                let descricao = document.getElementById('descricaolabel').value;
+                let valor = document.getElementById('valorlabel').value;
 
-             
+
+                 var despesa = {
+
+                      ano :  ano,
+                      mes : mes,
+                      dia :  dia,
+                      tipo : tipo,
+                      descricao : descricao,
+                      valor :  valor
+
+                }
+
+              
+
+            var id = localStorage.getItem('id')
+
+            
+
+            localStorage.setItem( parseInt(id), JSON.stringify(despesa));
+
+            localStorage.setItem('id', parseInt(id));
+           
+
+                
 
             });
+
+
 
 
             /* if(  ){ */

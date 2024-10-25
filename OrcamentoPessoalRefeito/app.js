@@ -21,6 +21,7 @@ class Despesa {
     }
 }
 
+
 class Bd {
     constructor() {
         let id = localStorage.getItem('id')
@@ -49,7 +50,7 @@ class Bd {
 
         let despesas = Array();
 
-        let id = localStorage.getItem('id')
+        let id = localStorage.getItem('id');
 
         for (let i = 1; i <= id; i++) {
             let despesa = JSON.parse(localStorage.getItem(i))
@@ -66,7 +67,12 @@ class Bd {
 
         }
 
+
+
+
         return despesas;
+
+
 
 
 
@@ -128,6 +134,11 @@ class Bd {
     remover(id) {
         localStorage.removeItem(id)
     }
+
+
+
+
+
 
 }
 
@@ -238,42 +249,36 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
                 let valor = document.getElementById('valorlabel').value;
 
 
-                 var despesa = {
+                var despesa = {
 
-                      ano :  ano,
-                      mes : mes,
-                      dia :  dia,
-                      tipo : tipo,
-                      descricao : descricao,
-                      valor :  valor
+                    ano: ano,
+                    mes: mes,
+                    dia: dia,
+                    tipo: tipo,
+                    descricao: descricao,
+                    valor: valor
 
                 }
 
-              
 
-            var id = localStorage.getItem('id')
 
-            
+                var id = localStorage.getItem('id')
 
-            localStorage.setItem( parseInt(id), JSON.stringify(despesa));
+                localStorage.setItem(parseInt(id), JSON.stringify(despesa));
 
-            localStorage.setItem('id', parseInt(id));
-           
+                localStorage.setItem('id', parseInt(id));
 
-                
+
+
+
+
 
             });
 
 
-
-
-            /* if(  ){ */
-
-
-            /* } */
-
-
         }
+
+
 
         linha.insertCell(4).append(btn2);
 
@@ -299,9 +304,6 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
     })
 
 
-
-
-
 }
 
 function pesquisarDespesa() {
@@ -316,9 +318,64 @@ function pesquisarDespesa() {
 
     let despesa = new Despesa(ano, mes, dia, tipo, descricao, valor);
 
-    let despesas = bd.pesquisar(despesa)
+    let despesas = bd.pesquisar(despesa);
 
     this.carregarListaDespesas(despesas, true)
 
 }
+
+var despesas = bd.recuperarTodosRegistros();
+
+alert(despesas.length)
+
+/* var parametro =  */function ordenar (pam){
+
+    data = Array();
+    valor = Array();
+
+    switch (pam) {
+
+        
+        case "data":
+
+            for (let i = 0; i <= despesas.length; i++) {
+
+                data[i] = despesas[i]
+
+            };
+
+            alert(data.length)
+            data.forEach(function (d){
+
+                console.log(d.ano);
+                
+
+            })
+
+            
+    
+            break;
+        case "tipo":
+
+
+            break;
+
+        case "descricao":
+
+
+            break;
+        case "valor":
+
+            break;
+
+    }
+
+
+
+
+}
+
+
+
+
 

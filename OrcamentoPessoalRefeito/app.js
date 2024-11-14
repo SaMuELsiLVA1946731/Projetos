@@ -67,13 +67,7 @@ class Bd {
 
         }
 
-
-
-
         return despesas;
-
-
-
 
 
     }
@@ -261,16 +255,11 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
                 }
 
 
-
                 var id = localStorage.getItem('id')
 
                 localStorage.setItem(parseInt(id), JSON.stringify(despesa));
 
                 localStorage.setItem('id', parseInt(id));
-
-
-
-
 
 
             });
@@ -324,56 +313,63 @@ function pesquisarDespesa() {
 
 }
 
+var data = new Array();
+valor = Array();
+
 var despesas = bd.recuperarTodosRegistros();
+var ordenado = new Array();
 
-alert(despesas.length)
 
-/* var parametro =  */function ordenar (pam){
-
-    data = Array();
-    valor = Array();
+function ordenar(pam) {
 
     switch (pam) {
 
-        
         case "data":
-
-            for (let i = 0; i <= despesas.length; i++) {
-
-                data[i] = despesas[i]
-
-            };
-
-            alert(data.length)
-            data.forEach(function (d){
-
-                console.log(d.ano);
-                
-
-            })
-
             
-    
-            break;
-        case "tipo":
+      
+           for( let i = 0; i <= despesas.length - 1; i++ ){
+
+            for(let j = 1; j <= despesas.length + 1; j++ ){
 
 
-            break;
+                if(despesas[i] > despesas[j] ){
 
-        case "descricao":
+                    ordenado[i] = despesas[j];
+
+                }else{
+                    ordenado[i] = despesas[i];
+                }
 
 
-            break;
-        case "valor":
+            }
 
-            break;
+           }
+
+
+             
+           for( let i = 0; i <= despesas.length; i++ ){
+               
+                console.log(ordenado[i]);
+            
+
+           }
 
     }
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

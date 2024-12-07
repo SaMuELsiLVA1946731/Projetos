@@ -182,9 +182,10 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
     let listaDespesas = document.getElementById('listaDespesas')
     listaDespesas.innerHTML = ''
 
-    var id;
+
 
     despesas.forEach(function (d) {
+
 
         let linha = listaDespesas.insertRow();
 
@@ -205,74 +206,10 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
                 break;
         }
 
+
         linha.insertCell(1).innerHTML = d.tipo;
         linha.insertCell(2).innerHTML = d.descricao;
         linha.insertCell(3).innerHTML = d.valor;
-
-
-        let btn2 = document.createElement("button")
-        btn2.className = "btn btn-primary"
-        btn2.innerHTML = '<i class="fas fa-edit"></i>'
-
-
-
-
-        btn2.onclick = function () {
-
-            document.getElementById("cor modal2").className = "modal-header text-primary";
-            document.getElementById("cor botao3").className = "btn btn-success";
-            document.getElementById("cor botao3").innerHTML = "Atualizar";
-            document.getElementById("exampleModalLabel2").innerHTML = "Atualize as novas informações";
-
-            $('#modalUpdate').modal('show');
-
-            ano = document.getElementById('anolabel').value = d.ano
-            mes = document.getElementById('meslabel').value = d.mes
-            dia = document.getElementById('dialabel').value = d.dia
-            tipo = document.getElementById('tipolabel').value = d.tipo
-            descricao = document.getElementById('descricaolabel').value = d.descricao
-            valor = document.getElementById('valorlabel').value = d.valor
-
-            document.getElementById("cor botao3").addEventListener("click", function () {
-
-                let ano = document.getElementById('anolabel').value;
-                let mes = document.getElementById('meslabel').value;
-                let dia = document.getElementById('dialabel').value;
-                let tipo = document.getElementById('tipolabel').value;
-                let descricao = document.getElementById('descricaolabel').value;
-                let valor = document.getElementById('valorlabel').value;
-
-
-                var despesa = {
-
-                    ano: ano,
-                    mes: mes,
-                    dia: dia,
-                    tipo: tipo,
-                    descricao: descricao,
-                    valor: valor
-
-                }
-
-
-                var id = localStorage.getItem('id')
-
-                localStorage.setItem(parseInt(id), JSON.stringify(despesa));
-
-                localStorage.setItem('id', parseInt(id));
-
-
-            });
-
-
-        }
-
-
-
-        linha.insertCell(4).append(btn2);
-
-
-
 
         let btn = document.createElement("button")
         btn.className = "btn btn-danger"
@@ -289,6 +226,69 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
 
         linha.insertCell(4).append(btn);
         console.log(d);
+
+
+        let btn2 = document.createElement("button")
+        btn2.className = "btn btn-primary"
+        btn2.innerHTML = '<i class="fas fa-edit"></i>'
+
+
+        btn2.onclick = function () {
+
+
+           
+            document.getElementById("cor modal2").className = "modal-header text-primary";
+            document.getElementById("cor botao3").className = "btn btn-success";
+            document.getElementById("cor botao3").innerHTML = "Atualizar";
+            document.getElementById("exampleModalLabel2").innerHTML = "Atualize as novas informações";
+
+            $('#modalUpdate').modal('show');
+
+           var ano = document.getElementById('anolabel').value = d.ano
+           var mes = document.getElementById('meslabel').value = d.mes
+           var dia = document.getElementById('dialabel').value = d.dia
+           var tipo = document.getElementById('tipolabel').value = d.tipo
+           var  descricao = document.getElementById('descricaolabel').value = d.descricao
+           var valor = document.getElementById('valorlabel').value = d.valor
+
+
+            document.getElementById("cor botao3").addEventListener("click", function () {
+
+                 var despesa = new Despesa(
+                    ano.value,
+                    mes.value,
+                    dia.value,
+                    tipo.value,
+                    descricao.value,
+                    valor.value
+                ) 
+
+               
+                alert(d.id);
+                
+                var id = d.id;
+ 
+                localStorage.setItem(id, JSON.stringify(d));
+
+                localStorage.setItem('id', id)
+
+                
+
+
+
+            });
+
+
+        }
+
+
+
+        linha.insertCell(5).append(btn2);
+
+
+
+
+
 
     })
 
@@ -315,50 +315,6 @@ function pesquisarDespesa() {
 
 var data = new Array();
 valor = Array();
-
-var despesas = bd.recuperarTodosRegistros();
-var ordenado = new Array();
-
-
-function ordenar(pam) {
-
-    switch (pam) {
-
-        case "data":
-            
-      
-           for( let i = 0; i <= despesas.length - 1; i++ ){
-
-            for(let j = 1; j <= despesas.length + 1; j++ ){
-
-
-                if(despesas[i] > despesas[j] ){
-
-                    ordenado[i] = despesas[j];
-
-                }else{
-                    ordenado[i] = despesas[i];
-                }
-
-
-            }
-
-           }
-
-
-             
-           for( let i = 0; i <= despesas.length; i++ ){
-               
-                console.log(ordenado[i]);
-            
-
-           }
-
-    }
-}
-
-
-
 
 
 

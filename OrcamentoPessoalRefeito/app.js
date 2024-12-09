@@ -67,10 +67,18 @@ class Bd {
 
         }
 
+        despesas.forEach(function (d) {
+
+            console.log(d);
+
+
+        })
+
         return despesas;
 
 
     }
+
 
     pesquisar(despesa) {
         let despesasFiltradas = Array()
@@ -233,61 +241,60 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
         btn2.innerHTML = '<i class="fas fa-edit"></i>'
 
 
-        btn2.onclick = function () {
-
-
-           
-            document.getElementById("cor modal2").className = "modal-header text-primary";
-            document.getElementById("cor botao3").className = "btn btn-success";
-            document.getElementById("cor botao3").innerHTML = "Atualizar";
-            document.getElementById("exampleModalLabel2").innerHTML = "Atualize as novas informações";
-
-            $('#modalUpdate').modal('show');
-
-           var ano = document.getElementById('anolabel').value = d.ano
-           var mes = document.getElementById('meslabel').value = d.mes
-           var dia = document.getElementById('dialabel').value = d.dia
-           var tipo = document.getElementById('tipolabel').value = d.tipo
-           var  descricao = document.getElementById('descricaolabel').value = d.descricao
-           var valor = document.getElementById('valorlabel').value = d.valor
-
-
-            document.getElementById("cor botao3").addEventListener("click", function () {
-
-                 var despesa = new Despesa(
-                    ano.value,
-                    mes.value,
-                    dia.value,
-                    tipo.value,
-                    descricao.value,
-                    valor.value
-                ) 
-
-               
-                alert(d.id);
-                
-                var id = d.id;
- 
-                localStorage.setItem(id, JSON.stringify(d));
-
-                localStorage.setItem('id', id)
-
-                
-
-
-
-            });
-
-
-        }
-
-
 
         linha.insertCell(5).append(btn2);
 
+        btn2.addEventListener("click", function () {
+
+            $('#modalUpdate').modal('show');
+
+            document.getElementById("anolabel").value = d.ano;
+            document.getElementById("meslabel").value = d.mes;
+            document.getElementById("dialabel").value = d.dia;
+            document.getElementById("tipolabel").value = d.tipo;
+            document.getElementById("descricaolabel").value = d.descricao;
+            document.getElementById("valorlabel").value = d.valor;
+
+
+            var atualizar = document.getElementById("cor botao3");
+            atualizar.innerHTML = "Atualizar";
+            atualizar.addEventListener("click", function () {
+
+                var ano = document.getElementById("anolabel").value;
+                var mes = document.getElementById("meslabel").value;
+                var dia = document.getElementById("dialabel").value;
+                var tipo = document.getElementById("tipolabel").value;
+                var descricao = document.getElementById("descricaolabel").value;
+                var valor = document.getElementById("valorlabel").value;
+
+
+                var despesa = {
+
+                    ano: ano,
+                    mes: mes,
+                    dia: dia,
+                    tipo: tipo,
+                    descricao: descricao,
+                    valor: valor
+
+                }
 
 
 
+
+
+
+                localStorage.setItem(d.id, JSON.stringify(despesa));
+
+
+
+
+            })
+
+
+
+
+        })
 
 
     })

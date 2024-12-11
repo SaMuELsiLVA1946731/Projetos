@@ -69,7 +69,7 @@ class Bd {
 
         despesas.forEach(function (d) {
 
-            console.log(d);
+            /* console.log(d); */
 
 
         })
@@ -81,12 +81,17 @@ class Bd {
 
 
     pesquisar(despesa) {
+
+        
+        
+
         let despesasFiltradas = Array()
 
         despesasFiltradas = this.recuperarTodosRegistros()
 
-        console.log(despesa);
-        console.log(despesasFiltradas);
+       
+
+        
 
         if (despesa.ano != '') {
 
@@ -129,6 +134,7 @@ class Bd {
             despesasFiltradas = despesasFiltradas.filter(d => d.descricao == despesa.valor)
         }
 
+        console.log(despesasFiltradas);  
         return despesasFiltradas;
 
     }
@@ -194,6 +200,8 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
 
     despesas.forEach(function (d) {
 
+       /*  console.log(d); */
+        
 
         let linha = listaDespesas.insertRow();
 
@@ -233,7 +241,7 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
 
 
         linha.insertCell(4).append(btn);
-        console.log(d);
+        /* console.log(d); */
 
 
         let btn2 = document.createElement("button")
@@ -279,12 +287,9 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
 
                 }
 
+               var id = d.id
 
-
-
-
-
-                localStorage.setItem(d.id, JSON.stringify(despesa));
+                localStorage.setItem(id, JSON.stringify(despesa));
 
 
 
@@ -305,18 +310,23 @@ function carregarListaDespesas(despesas = Array(), filtro = false) {
 function pesquisarDespesa() {
 
 
-    let ano = document.getElementById('ano').value
-    let mes = document.getElementById('mes').value
-    let dia = document.getElementById('dia').value
-    let tipo = document.getElementById('tipo').value
-    let descricao = document.getElementById('descricao').value
-    let valor = document.getElementById('valor').value
+
+    let ano = document.getElementById('anoCon').value
+    let mes = document.getElementById('mesCon').value
+    let dia = document.getElementById('diaCon').value
+    let tipo = document.getElementById('tipoCon').value
+    let descricao = document.getElementById('descricaoCon').value
+    let valor = document.getElementById('valorCon').value
 
     let despesa = new Despesa(ano, mes, dia, tipo, descricao, valor);
 
+    
     let despesas = bd.pesquisar(despesa);
 
-    this.carregarListaDespesas(despesas, true)
+    /* console.log(despesas); */
+    
+
+    this.carregarListaDespesas(despesas, true);
 
 }
 
